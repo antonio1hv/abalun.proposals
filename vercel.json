@@ -1,9 +1,4 @@
 {
-  "buildEnvironment": {
-    "VITE_SUPABASE_URL": "@vite_supabase_url",
-    "VITE_SUPABASE_ANON_KEY": "@vite_supabase_anon_key",
-    "VITE_SITE_URL": "${VERCEL_URL}"
-  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
