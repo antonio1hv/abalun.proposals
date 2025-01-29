@@ -14,9 +14,10 @@ import { ExternalLink, FileEdit, Eye } from 'lucide-react'
 interface ProposalDocumentProps {
   documentId: string | null
   title: string
+  isEditMode?: boolean
 }
 
-export function ProposalDocument({ documentId, title }: ProposalDocumentProps) {
+export function ProposalDocument({ documentId, title, isEditMode = false }: ProposalDocumentProps) {
   const { data: documentInfo, isLoading } = useDocumentInfo(documentId)
 
   if (!documentId) {
@@ -56,6 +57,10 @@ export function ProposalDocument({ documentId, title }: ProposalDocumentProps) {
     )
   }
 
+  const handleOpenDocument = () => {
+    window.open(isEditMode ? documentInfo.editUrl : documentInfo.viewUrl, '_blank')
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -77,34 +82,33 @@ export function ProposalDocument({ documentId, title }: ProposalDocumentProps) {
               ID del documento: {documentId}
             </p>
           </div>
-          <div className="flex space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => window.open(documentInfo.viewUrl, '_blank')}
-            >
-              <Eye className="mr-2 h-4 w-4" />
-              Ver
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => window.open(documentInfo.editUrl, '_blank')}
-            >
-              <FileEdit className="mr-2 h-4 w-4" />
-              Editar
-            </Button>
-          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleOpenDocument}
+          >
+            {isEditMode ? (
+              <>
+                <FileEdit className="mr-2 h-4 w-4" />
+                Editar
+              </>
+            ) : (
+              <>
+                <Eye className="mr-2 h-4 w-4" />
+                Ver
+              </>
+            )}
+          </Button>
         </div>
       </CardContent>
       <CardFooter>
         <Button
           variant="ghost"
           className="w-full"
-          onClick={() => window.open(documentInfo.editUrl, '_blank')}
+          onClick={handleOpenDocument}
         >
           <ExternalLink className="mr-2 h-4 w-4" />
-          Abrir en Google Docs
+          {isEditMode ? 'Abrir para editar' : 'Abrir para ver'}
         </Button>
       </CardFooter>
     </Card>
