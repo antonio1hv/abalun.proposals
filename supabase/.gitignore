@@ -1,0 +1,26 @@
+# Supabase
+.branches
+.temp
+
+# dotenvx
+.env.keys
+.env.local
+.env.*.local
+
+# Cursor
+.cursor/rules/context
+.cursor/rules/rules.json
+.cursor/rules/rules.json            
+
+node_modules    
+vscode
+
+
+env.local
+.env.local
+.env.*.local
+
+.env
+.env.*
+
+
