@@ -1,0 +1,121 @@
+Everything will be in Spanish from Spain. 
+
+The app name is "Propuestas"
+
+We're building a web app that allows users to create and manage proposals getting them from Google Docs.
+
+# Aplicación de Gestión de Propuestas Comerciales
+
+## Descripción General
+Esta aplicación web está diseñada para gestionar propuestas comerciales y relaciones con clientes, ofreciendo una interfaz en español para empresas españolas.
+
+## Funcionalidades Implementadas
+
+### Autenticación
+- Inicio de sesión con Google
+- Página de login minimalista
+
+### Gestión de Empresas
+- Registro de información de empresas cliente
+- Gestión de contactos por empresa
+  - Nombre y apellidos
+  - Email
+  - Rol en la empresa
+
+### Configuración
+- Gestión de información de la empresa
+- Plantillas de correo electrónico personalizables
+  - Plantillas para propuestas
+  - Plantillas para seguimiento
+
+## Funcionalidades Pendientes
+
+### Autenticación
+- Implementación completa de la autenticación con Google (conexión con Supabase)
+- Sistema de gestión de sesiones
+
+### Gestión de Propuestas
+- Creación de propuestas comerciales
+- Sistema de seguimiento de propuestas
+- Estados de propuestas (pendiente, aceptada, rechazada)
+- Historial de propuestas por cliente
+
+### Base de Datos
+- Integración con Supabase para almacenamiento persistente
+- Relaciones entre empresas, contactos y propuestas
+
+### Funcionalidades Adicionales Sugeridas
+- Sistema de notificaciones
+- Dashboard con métricas y KPIs
+- Exportación de propuestas a PDF
+- Sistema de recordatorios para seguimiento
+- Integración con calendario
+- Historial de interacciones con clientes
+
+### Mejoras Técnicas Pendientes
+- Implementación de caché para optimizar rendimiento
+- Sistema de manejo de errores robusto
+- Tests automatizados
+- Sistema de respaldo de datos
+
+We're using the following technologies:
+- Next.js
+- Tailwind CSS
+- Shadcn UI
+- Clerk
+- Lucid
+- Lucid Icons
+- Lucid Schema
+- Lucid Schema Types
+- Lucid Schema Validators
+- Lucid Schema Types
+
+We are using the following libraries:
+- Lucid Schema
+- Lucid Schema Types
+- Lucid Schema Validators
+- Lucid Schema Types
+
+We are deploying to Vercel.
+
+
+# Your rule content
+# Supabase Credentials and Configuration
+
+## Instance Information
+Instance IP: 130.211.67.93
+Domain: sp.1hv.es
+
+## Database Credentials
+Host: localhost
+Port: 5432
+Main Database: supabase
+Postgres User: postgres
+Supabase Admin: supabase_admin
+Password: e439b6b6-f27d-4dd6-84bb-5ebfc0a588b8
+
+## API Information
+API URL: https://sp.1hv.es/rest/v1/
+Studio URL: https://sp.1hv.es
+
+## JWT Configuration
+JWT Secret: e439b6b6-f27d-4dd6-84bb-5ebfc0a588b8e439b6b6-f27d-4dd6-84bb-5ebfc0a588b8
+
+## SSL Certificates
+Certificate Path: /etc/letsencrypt/live/sp.1hv.es/fullchain.pem
+Private Key Path: /etc/letsencrypt/live/sp.1hv.es/privkey.pem
+Expiration Date: 2025-04-28
+
+## Important Ports
+Studio Port: 54323
+API Port: 8000
+Database Port: 5432
+
+## Google Cloud Information
+Project ID: supabase-instance-20250128
+Zone: europe-west1-b
+Instance Name: supabase-instance
+
+## Backup Information
+Docker Volume: supabase_db-data
+Backup Command: docker volume ls --filter label=com.supabase.cli.project=msivspnsphyjjbrcmwux
