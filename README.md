@@ -5,9 +5,16 @@ A proposal management system with Google Docs integration.
 ## Deployment on Vercel
 
 1. Connect your GitHub repository to Vercel
+
 2. Configure environment variables in Vercel project settings:
-   - Add all variables from `.env.example`
-   - Ensure the `GOOGLE_PRIVATE_KEY` is properly formatted with newlines
+   - Use variables from `.env.example` as a template
+   - Remove the `EXAMPLE_` prefix from all variables
+   - For `GOOGLE_PRIVATE_KEY`:
+     ```
+     -----BEGIN PRIVATE KEY-----
+     Your actual private key content here
+     -----END PRIVATE KEY-----
+     ```
    - Set the appropriate Supabase credentials
 
 3. Deploy settings:
@@ -25,7 +32,8 @@ npm install
 
 2. Configure environment variables:
    - Copy `.env.example` to `.env`
-   - Fill in your credentials
+   - Remove the `EXAMPLE_` prefix from all variables
+   - Fill in your actual credentials
    - These should match your Vercel environment variables
 
 3. Start the application:
@@ -67,10 +75,10 @@ This project includes several security measures:
 
 Required environment variables (configure in Vercel):
 
-- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_URL`: Your Supabase project URL (e.g., https://your-project.supabase.co)
 - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 - `GOOGLE_SERVICE_ACCOUNT_EMAIL`: Google Cloud service account email
-- `GOOGLE_PRIVATE_KEY`: Google Cloud service account private key
+- `GOOGLE_PRIVATE_KEY`: Google Cloud service account private key (with proper newlines)
 
 Optional:
 - `PROPOSAL_TEMPLATE_ID`: Google Doc template ID for proposals
