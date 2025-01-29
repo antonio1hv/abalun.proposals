@@ -20,6 +20,10 @@ service-account-key.json
 *-service-account-key.json
 *.p12
 *.pem
+*.key
+*.pfx
+*.crt
+*.cer
 
 # Misc
 .DS_Store
@@ -57,4 +61,10 @@ logs
 .supabase
 
 # Vite
-.vite 
+.vite
+
+# Security scan results
+trivy-results.sarif
+gitleaks-report.json
+trufflehog-report.json
+security-scan-results/
