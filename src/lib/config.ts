@@ -3,11 +3,13 @@ interface Config {
     url: string
     anonKey: string
   }
+  siteUrl: string
 }
 
 function validateConfig(): Config {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+  const siteUrl = import.meta.env.VITE_SITE_URL || window.location.origin
 
   const missingVars = []
   if (!supabaseUrl) missingVars.push('VITE_SUPABASE_URL')
@@ -22,7 +24,8 @@ function validateConfig(): Config {
     supabase: {
       url: supabaseUrl,
       anonKey: supabaseAnonKey,
-    }
+    },
+    siteUrl
   }
 }
 

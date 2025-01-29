@@ -14,6 +14,7 @@ import Settings from "./pages/Settings";
 import Companies from "./pages/Companies";
 import NotFound from "./pages/NotFound";
 import TestPage from '@/pages/test';
+import AuthCallback from './pages/auth/callback';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,7 @@ function App() {
               {/* Public routes */}
               <Route path="/" element={<Index />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
 
               {/* Protected routes */}
               <Route path="/companies" element={
