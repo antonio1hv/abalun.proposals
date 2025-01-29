@@ -20,9 +20,15 @@ api_url = "https://sp.1hv.es"
 [auth]
 enabled = true
 site_url = "https://sp.1hv.es"
-additional_redirect_urls = ["https://sp.1hv.es"]
+additional_redirect_urls = ["https://sp.1hv.es", "https://sp.1hv.es/auth/callback"]
 jwt_expiry = 3600
 enable_refresh_token_rotation = true
+
+[auth.external.google]
+enabled = true
+client_id = "1050921918079-li1hsithbefe4bpunlntab2dl4qcck9m.apps.googleusercontent.com"
+secret = "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"
+redirect_uri = "https://sp.1hv.es/auth/callback"
 
 [inbucket]
 enabled = false
