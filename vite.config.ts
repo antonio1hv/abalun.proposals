@@ -11,7 +11,8 @@ export default defineConfig({
     },
   },
   build: {
-    minify: 'terser',
+    minify: 'esbuild',
+    cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -28,12 +29,18 @@ export default defineConfig({
           ],
           'data-vendor': ['@tanstack/react-query', '@supabase/supabase-js'],
           'utils-vendor': ['class-variance-authority', 'clsx', 'tailwind-merge']
-        }
+        },
+        assetFileNames: 'assets/[hash][extname]',
+        chunkFileNames: 'assets/[hash].js',
+        entryFileNames: 'assets/[hash].js'
       }
     },
     target: 'es2015',
     sourcemap: false,
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    assetsInlineLimit: 4096,
+    cssCodeSplit: true,
+    modulePreload: true
   },
   optimizeDeps: {
     include: [
@@ -42,6 +49,16 @@ export default defineConfig({
       'react-router-dom',
       '@radix-ui/react-icons',
       '@tanstack/react-query'
-    ]
+    ],
+    esbuildOptions: {
+      target: 'es2015'
+    }
+  },
+  esbuild: {
+    target: 'es2015',
+    platform: 'browser',
+    supported: {
+      'top-level-await': true
+    }
   }
 });
