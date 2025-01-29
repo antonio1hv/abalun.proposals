@@ -6,11 +6,19 @@ export default function AuthCallback() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
+    // Handle the OAuth callback
+    const handleAuthCallback = async () => {
+      try {
+        const { error } = await supabase.auth.getSession()
+        if (error) throw error
         navigate('/companies')
+      } catch (error) {
+        console.error('Error during auth callback:', error)
+        navigate('/')
       }
-    })
+    }
+
+    handleAuthCallback()
   }, [navigate])
 
   return (

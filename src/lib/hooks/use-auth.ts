@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import type { User } from '@supabase/supabase-js'
+import { config } from '../config'
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null)
@@ -27,8 +28,8 @@ export function useAuth() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
+        skipBrowserRedirect: false,
+      }
     })
     if (error) throw error
   }

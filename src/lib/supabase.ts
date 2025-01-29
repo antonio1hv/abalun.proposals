@@ -7,8 +7,7 @@ export const supabase = createClient<Database>(config.supabase.url, config.supab
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: true,
-    flowType: 'pkce',
-    redirectTo: `${config.siteUrl}/auth/callback`
+    flowType: 'implicit'
   }
 });
 
