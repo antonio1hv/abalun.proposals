@@ -1,25 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from '@/types/supabase';
+import { config } from './config';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-// Check if we're in development mode
-const isDevelopment = import.meta.env.DEV;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  if (isDevelopment) {
-    console.error('Missing Supabase environment variables:', {
-      VITE_SUPABASE_URL: supabaseUrl ? '✓' : '✗',
-      VITE_SUPABASE_ANON_KEY: supabaseAnonKey ? '✓' : '✗',
-    });
-  }
-  throw new Error(
-    'Missing Supabase environment variables. Please check your .env file or Vercel environment variables.'
-  );
-}
-
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient<Database>(config.supabase.url, config.supabase.anonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
