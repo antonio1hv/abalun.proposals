@@ -11,6 +11,7 @@ import EditProposal from "./pages/EditProposal";
 import Settings from "./pages/Settings";
 import Companies from "./pages/Companies";
 import NotFound from "./pages/NotFound";
+import TestPage from '@/pages/test'
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/proposal/:id/edit" element={<EditProposal />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/companies" element={<Companies />} />
+          <Route path="/test" element={<TestPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

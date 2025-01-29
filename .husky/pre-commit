@@ -2,7 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # Check for potential secrets in a more specific way
-if git diff --cached -U0 | grep -iE "(private[._-]key|secret[._-]key|password[._-]value|token[._-]value|api[._-]key[._-]value|credentials[._-]file)" ; then
+if git diff --cached -U0 | grep -iE "(private[._-]key[._-]value|secret[._-]key[._-]value|password[._-]value|token[._-]value|api[._-]key[._-]value|credentials[._-]file)" ; then
   echo "🚨 WARNING: Potential secrets found in staged files."
   echo "Please check the following:"
   echo "1. Remove any actual secrets or credentials"
