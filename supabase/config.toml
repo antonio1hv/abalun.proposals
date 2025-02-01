@@ -2,10 +2,10 @@ project_id = "default"
 
 [api]
 enabled = true
-port = 54321
-schemas = ["public", "graphql_public", "propuestas"]
+schemas = ["public", "graphql_public"]
 extra_search_path = ["public", "extensions"]
 max_rows = 1000
+port = 54321
 
 [db]
 port = 54322
@@ -15,26 +15,35 @@ major_version = 15
 [studio]
 enabled = true
 port = 54323
-api_url = "https://sp.1hv.es"
+api_url = "https://mdvwvybbtphnuymmxbcp.supabase.co"
 
 [auth]
 enabled = true
-site_url = "https://sp.1hv.es"
-additional_redirect_urls = ["https://sp.1hv.es", "https://sp.1hv.es/auth/callback"]
+site_url = "http://localhost:3000"
 jwt_expiry = 3600
 enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = true
+secure_password_change = false
+max_frequency = "1m0s"
+otp_length = 6
+otp_expiry = 3600
 
 [auth.external.google]
 enabled = true
 client_id = "1050921918079-li1hsithbefe4bpunlntab2dl4qcck9m.apps.googleusercontent.com"
 secret = "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"
-redirect_uri = "https://sp.1hv.es/auth/callback"
-
-[inbucket]
-enabled = false
+redirect_uri = "https://mdvwvybbtphnuymmxbcp.supabase.co/auth/v1/callback"
 
 [storage]
 enabled = true
+
+[inbucket]
+enabled = false
 
 [analytics]
 enabled = false
